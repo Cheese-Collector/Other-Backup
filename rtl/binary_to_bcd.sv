@@ -1,3 +1,10 @@
+//Converts Binary to BCD (Binary-coded decimal)
+//This allows us to store a number by its decimal
+//digits. One nibble per digit.
+
+//This method uses a double-dabble approach.
+//It is cheaper and faster than a typical division.
+
 `timescale 1ns / 1ps
 
 module binary_to_bcd (
