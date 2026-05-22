@@ -1,5 +1,11 @@
 `timescale 1ns / 1ps
 
+//button module that sends a small pulse among initial
+//press. after HOLD_CYCLES of the button being held,
+//another pulse is sent out, repeating every
+//REPEAT_CYCLES until the button is no longer held
+
+
 module button_auto_repeat #(
     parameter int HOLD_CYCLES   = 50_000_000,
     //REPEAT_CYCLES must be smaller than HOLD_CYCLES

@@ -2,7 +2,7 @@
 // Seven-sement display decoder for hexadecimal digits.
 //
 // Parameters:
-//   ACTIVE_LOW     - 1 for active-low LEDs (for example, DE1-SoC), 0 for acitve-high.
+//   ACTIVE_LOW     - 1 for active-low LEDs (for example, DE1-SoC), 0 for active-high.
 //
 // Ports:
 //   digit    [3:0] - Hexadecimal digit to display (0x0 to 0xF).
