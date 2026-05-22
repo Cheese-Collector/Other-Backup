@@ -1,0 +1,52 @@
+`timescale 1ns / 1ps
+
+//output held asserted on the clock edge
+//which button has been sampled for
+//HOLD_CYCLES consecutive rising clock edges.
+
+//Deasserts on the clock edge after button goes
+//low
+
+//This requires a button to be held for
+//a duration before an input is sent.
+//useful for an edit button
+
+
+
+module button_hold_detect #(
+    parameter int HOLD_CYCLES = 50_000_000
+) (
+    input  logic clk,
+    input  logic button,
+    output logic held
+);
+
+
+  localparam int CountMax = HOLD_CYCLES;  //fill in
+  localparam int CountWidth = $clog2(CountMax + 1);
+
+  logic count_rst;
+  logic count_enable;
+  logic [CountWidth - 1:0] count;
+  mod_n_counter #(
+      .N(CountMax + 1),
+      .WIDTH(CountWidth)
+  ) u_counter (
+      .clk(clk),
+      .rst(count_rst),
+      .enable(count_enable),
+      .count(count)
+  );
+
+  always_comb begin
+    count_rst = !button;
+    held = (count == CountWidth'(CountMax));
+    count_enable = button && !held;
+    //allowed as count_enable relies on current state
+    //held which won't update till next clk when count updates.
+    //
+    //
+    //we could have used (count == CountWidth'(CountMax))
+  end
+
+endmodule

@@ -50,7 +50,7 @@ module restartable_rate_generator #(
       assign rst_count = !running;
       assign enable_count = running;
 
-      assign tick_qualifier = (count == CountWidth'(CYCLE_COUNT - 1));
+      assign tick_qualifier = (count == CountWidth'(CYCLE_COUNT - 2));
       //CountWidth param helps make the width of LHS equal that of RHS
     end else begin : g_special
       //Code for special case CYCLE_COUNT = 1;
