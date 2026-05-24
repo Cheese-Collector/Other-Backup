@@ -1,0 +1,6 @@
+I would like to acknowledge my group partner, Joshua Condon.
+
+I would also like to acknowledge these materials on the
+double-dabble algorithm.
+https://en.wikipedia.org/wiki/Double_dabble
+https://www.youtube.com/watch?v=eXIfZ1yKFlA
